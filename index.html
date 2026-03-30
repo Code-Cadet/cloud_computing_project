@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>IST4035 Notes App</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+    <div class="app">
+        
+        <header class="app-header">
+            <div class="brand-container">
+                <div class="logo-circle">NA</div> <div>
+                    <h1>Notes App</h1>
+                    <span class="subtitle">Create, edit, delete and search notes. Data is stored in localStorage using JSON.</span>
+                </div>
+            </div>
+            
+            <div class="shortcut-badge">
+                <small>Shortcuts: <b>Ctrl + Q</b> (New) &bull; <b>Ctrl + S</b> (Save)</small>
+            </div>
+        </header>
+
+        <main class="app-main">
+
+            <aside class="left-panel">
+                <section class="note-editor-section">
+                    <div class="section-header">
+                        <h2 id="editorTitle">Compose Note</h2>
+                        <span id="editorStatus" class="status-indicator">Ready</span>
+                    </div>
+
+                    <form id="note-form" autocomplete="off">
+                        <div class="field">
+                            <label for="titleInput">Subject / Title</label>
+                            <input id="titleInput" type="text" required placeholder="Ex: Project Requirements..." />
+                        </div>
+
+                        <div class="field">
+                            <label for="contentInput">Details</label>
+                            <textarea id="contentInput" rows="6" required placeholder="Type your thoughts here..."></textarea>
+                        </div>
+
+                        <div class="field-group">
+                            <div class="field">
+                                <label for="tagsInput">Tags</label>
+                                <input id="tagsInput" type="text" placeholder="e.g. class, urgent" />
+                            </div>
+                            <div class="field">
+                                <label for="priorityInput">Priority Level</label>
+                                <select id="priorityInput">
+                                    <option value="low">🟢 Low</option>
+                                    <option value="medium" selected>🟡 Medium</option>
+                                    <option value="high">🔴 High</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="button-row">
+                            <button type="submit" class="btn primary" id="saveBtn">Save Entry</button>
+                            <button type="button" class="btn secondary" id="clearFormBtn">Clear</button>
+                        </div>
+                        <button type="button" class="btn danger full-width" id="deleteAllBtn" style="margin-top: 10px; width: 100%;">
+                            🗑️ Delete All Data
+                        </button>
+                    </form>
+                </section>
+            </aside>
+
+            <section class="right-panel">
+                
+                <div class="dashboard-controls">
+                    <div class="search-wrapper">
+                        <label for="searchInput">🔍 Search</label>
+                        <input id="searchInput" type="text" placeholder="Filter by keyword..." />
+                    </div>
+                    
+                    <div class="filter-wrapper">
+                        <label for="filterPriority">Filter View</label>
+                        <select id="filterPriority">
+                            <option value="all">Show All</option>
+                            <option value="high">High Priority</option>
+                            <option value="medium">Medium Priority</option>
+                            <option value="low">Low Priority</option>
+                        </select>
+                    </div>
+                    
+                    <div class="count-wrapper">
+                        <span id="notesCount" class="badge">0</span>
+                    </div>
+                </div>
+
+                <div class="notes-hint">
+                    💡 <strong>Tip:</strong> Drag cards to reorder them.
+                </div>
+
+                <div id="notesList" class="notes-list">
+                    </div>
+
+            </section>
+
+        </main>
+
+        <footer class="app-footer">
+            &copy; 2026 Notes App. Powered by LocalStorage API.
+        </footer>
+
+    </div>
+
+    <script src="notes-app.js"></script>
+</body>
+</html>
